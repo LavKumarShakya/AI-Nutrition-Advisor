@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Nutrition Advisor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">🥗 AI Nutrition<span class="dot">.</span></div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="index.html#demo">Analyze Food</a>
+                <a href="index.html#daily-log">Daily Log</a>
+            </div>
+            <button class="nav-cta" onclick="window.location.href='index.html#demo'">Scan Food</button>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Welcome Header -->
+            <div class="dashboard-header">
+                <div class="welcome-text">
+                    <h1>Welcome back! 👋</h1>
+                    <p>Here's your nutrition overview for today</p>
+                </div>
+                <div class="current-date" id="currentDate">Monday, Nov 20, 2024</div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Calories Today</div>
+                        <div class="stat-value" id="dashboardCalories">0</div>
+                        <div class="stat-target">of 2000 kcal goal</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="calorieProgress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🍽️</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Meals Logged</div>
+                        <div class="stat-value" id="dashboardMeals">0</div>
+                        <div class="stat-target">meals today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Avg Health Score</div>
+                        <div class="stat-value" id="avgHealthScore">--</div>
+                        <div class="stat-target">out of 100</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Weekly Streak</div>
+                        <div class="stat-value">7</div>
+                        <div class="stat-target">days active</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Recent Meals -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Today's Meals</h3>
+                        <a href="index.html#daily-log" class="view-all">View All →</a>
+                    </div>
+                    <div class="meals-list" id="recentMealsList">
+                        <div class="empty-state">
+                            <div class="empty-icon">🍽️</div>
+                            <p>No meals logged yet today</p>
+                            <button class="primary-btn" onclick="window.location.href='index.html#demo'">Scan Your First
+                                Meal</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nutrition Breakdown -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Nutrition Breakdown</h3>
+                    </div>
+                    <div class="nutrition-breakdown">
+                        <div class="macro-item">
+                            <div class="macro-header">
+                                <span class="macro-name">Protein</span>
+                                <span class="macro-value"><span id="proteinTotal">0</span>g</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill protein" id="proteinProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="macro-target">Goal: 50g</div>
+                        </div>
+
+                        <div class="macro-item">
+                            <div class="macro-header">
+                                <span class="macro-name">Carbs</span>
+                                <span class="macro-value"><span id="carbsTotal">0</span>g</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill carbs" id="carbsProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="macro-target">Goal: 250g</div>
+                        </div>
+
+                        <div class="macro-item">
+                            <div class="macro-header">
+                                <span class="macro-name">Fats</span>
+                                <span class="macro-value"><span id="fatsTotal">0</span>g</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fats" id="fatsProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="macro-target">Goal: 65g</div>
+                        </div>
+
+                        <div class="macro-item">
+                            <div class="macro-header">
+                                <span class="macro-name">Fiber</span>
+                                <span class="macro-value"><span id="fiberTotal">0</span>g</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fiber" id="fiberProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="macro-target">Goal: 25g</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn" onclick="window.location.href='index.html#demo'">
+                            <div class="action-icon">📸</div>
+                            <div class="action-text">
+                                <div class="action-title">Scan Food</div>
+                                <div class="action-desc">Analyze a meal</div>
+                            </div>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='index.html#daily-log'">
+                            <div class="action-icon">📊</div>
+                            <div class="action-text">
+                                <div class="action-title">View Log</div>
+                                <div class="action-desc">See all meals</div>
+                            </div>
+                        </button>
+                        <button class="action-btn" onclick="setGoals()">
+                            <div class="action-icon">🎯</div>
+                            <div class="action-text">
+                                <div class="action-title">Set Goals</div>
+                                <div class="action-desc">Update targets</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Health Tips -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Today's Health Tips</h3>
+                    </div>
+                    <div class="tips-list">
+                        <div class="tip-item">
+                            <div class="tip-icon">💧</div>
+                            <div class="tip-text">Drink at least 8 glasses of water today</div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">🥗</div>
+                            <div class="tip-text">Include vegetables in every meal</div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">🚶</div>
+                            <div class="tip-text">Take a 10-minute walk after meals</div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">😴</div>
+                            <div class="tip-text">Get 7-8 hours of sleep tonight</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">🥗 AI Nutrition<span class="dot">.</span></div>
+                    <p class="footer-desc">Smart food recognition and health suggestions powered by AI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="index.html#demo">Analyze Food</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Nutrition Advisor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Nutrition Advisor - Smart Food Recognition & Health Suggestions</title>
+    <meta name="description"
+        content="AI-powered food recognition system that identifies dishes, shows nutrition facts, calculates health scores, and suggests healthier alternatives.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">🥗 AI Nutrition<span class="dot">.</span></div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#demo">Try Demo</a>
+                <a href="#daily-log">Daily Log</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button onclick="window.location.href='dashboard.html'"
+                    style="background: #F8FAFC; border: 2px solid #E2E8F0; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.3rem; padding: 0;"
+                    title="Go to Dashboard">👤</button>
+                <button class="nav-cta">Get Started</button>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Know What You Eat, Live Healthier</h1>
+                    <p class="hero-subtitle">AI-powered food recognition that instantly identifies your meals, shows
+                        complete nutrition facts, and suggests healthier alternatives. Make smart food choices every
+                        day.</p>
+                    <div class="hero-actions">
+                        <button class="primary-btn"
+                            onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">Upload Food
+                            Photo</button>
+                        <button class="secondary-btn"
+                            onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})">Learn
+                            How</button>
+                    </div>
+                </div>
+                <div class="hero-upload-card">
+                    <div class="quick-scan">
+                        <h3>Quick Scan</h3>
+                        <div class="upload-preview" id="heroUploadPreview">
+                            <div class="upload-icon">📸</div>
+                            <p>Click or drag food image</p>
+                        </div>
+                        <input type="file" id="heroFileInput" accept="image/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('heroFileInput').click()">Choose
+                            Image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <h2>The Problem We're Solving</h2>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon">❓</div>
+                        <h4>Unknown Calories</h4>
+                        <p>Most people don't know how many calories they consume daily</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">⚠️</div>
+                        <h4>Hidden Unhealthy Food</h4>
+                        <p>Can't tell if food is healthy without nutritional knowledge</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">🤔</div>
+                        <h4>No Alternatives</h4>
+                        <p>Don't know what healthier options exist</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">📊</div>
+                        <h4>Complex Tracking</h4>
+                        <p>Manual calorie counting is time-consuming and confusing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">How It Works</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Get nutrition insights in 4 simple steps</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">📸</div>
+                    <h3>Upload Photo</h3>
+                    <p>Take a photo of your food or upload from gallery</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">🤖</div>
+                    <h3>AI Identifies</h3>
+                    <p>Our AI recognizes the dish instantly</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">📊</div>
+                    <h3>Get Analysis</h3>
+                    <p>View calories, nutrition, and health score</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">💡</div>
+                    <h3>Improve</h3>
+                    <p>Get healthier alternatives and tips</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Powerful Features</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>AI Food Recognition</h3>
+                    <p>Instantly identify dishes from photos - Pizza, Burger, Salad, Indian food, and more</p>
+                    <ul class="feature-list">
+                        <li>Recognizes 100+ common foods</li>
+                        <li>Works with any cuisine</li>
+                        <li>Fast & accurate detection</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>Complete Nutrition Facts</h3>
+                    <p>Get detailed nutritional breakdown for every meal</p>
+                    <ul class="feature-list">
+                        <li>Calories & portion size</li>
+                        <li>Protein, Carbs, Fats</li>
+                        <li>Sugar & Fiber content</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Health Score (0-100)</h3>
+                    <p>Instant health rating based on nutritional balance</p>
+                    <ul class="feature-list">
+                        <li>Color-coded scoring</li>
+                        <li>Based on calorie & fat levels</li>
+                        <li>Easy to understand</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Smart Suggestions</h3>
+                    <p>Get personalized recommendations for healthier eating</p>
+                    <ul class="feature-list">
+                        <li>Healthier alternatives</li>
+                        <li>Homemade options</li>
+                        <li>Portion control tips</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Try It Now</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Upload a food image and see the magic happen</p>
+            </div>
+            <div class="demo-container">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content" id="uploadContent">
+                            <div class="upload-icon-large">📸</div>
+                            <h3>Upload Food Image</h3>
+                            <p>Drag & drop or click to select</p>
+                            <input type="file" id="foodImageInput" accept="image/*" style="display: none;">
+                            <button class="primary-btn"
+                                onclick="document.getElementById('foodImageInput').click()">Choose Image</button>
+                        </div>
+                        <img id="uploadedImage" style="display: none; max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <button class="primary-btn large" id="analyzeBtn"
+                        style="display: none; width: 100%; margin-top: 20px;">Analyze Food</button>
+                </div>
+
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <div class="result-header">
+                        <h3 id="foodName">Pizza</h3>
+                        <div class="health-score-badge" id="healthScoreBadge">
+                            <div class="score-circle-small">
+                                <svg width="80" height="80">
+                                    <circle cx="40" cy="40" r="35" fill="none" stroke="#e5e7eb" stroke-width="6">
+                                    </circle>
+                                    <circle id="scoreCircle" cx="40" cy="40" r="35" fill="none" stroke="#10B981"
+                                        stroke-width="6" stroke-dasharray="220" stroke-dashoffset="66"
+                                        transform="rotate(-90 40 40)"></circle>
+                                </svg>
+                                <div class="score-text" id="scoreText">70</div>
+                            </div>
+                            <span id="scoreLabel">Good</span>
+                        </div>
+                    </div>
+
+                    <div class="nutrition-grid">
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Calories</div>
+                            <div class="nutrition-value" id="calories">285</div>
+                            <div class="nutrition-unit">kcal</div>
+                        </div>
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Protein</div>
+                            <div class="nutrition-value" id="protein">12</div>
+                            <div class="nutrition-unit">g</div>
+                        </div>
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Carbs</div>
+                            <div class="nutrition-value" id="carbs">36</div>
+                            <div class="nutrition-unit">g</div>
+                        </div>
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Fats</div>
+                            <div class="nutrition-value" id="fats">10</div>
+                            <div class="nutrition-unit">g</div>
+                        </div>
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Sugar</div>
+                            <div class="nutrition-value" id="sugar">4</div>
+                            <div class="nutrition-unit">g</div>
+                        </div>
+                        <div class="nutrition-card">
+                            <div class="nutrition-label">Fiber</div>
+                            <div class="nutrition-value" id="fiber">2</div>
+                            <div class="nutrition-unit">g</div>
+                        </div>
+                    </div>
+
+                    <div class="suggestions-box">
+                        <h4>💡 Smart Suggestions</h4>
+                        <ul id="suggestionsList">
+                            <li>Choose whole wheat base for more fiber</li>
+                            <li>Use less cheese to reduce fat content</li>
+                            <li>Add more vegetable toppings</li>
+                            <li>Try homemade version with low oil</li>
+                        </ul>
+                    </div>
+
+                    <button class="secondary-btn" id="addToLogBtn">Add to Daily Log</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Log Section -->
+    <section class="daily-log-section" id="daily-log">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Daily Food Log</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Track your meals and monitor daily calorie intake</p>
+            </div>
+
+            <div class="log-container">
+                <div class="log-summary">
+                    <div class="summary-card">
+                        <h4>Today's Total</h4>
+                        <div class="total-calories" id="totalCalories">0</div>
+                        <p>calories</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Meals Logged</h4>
+                        <div class="total-meals" id="totalMeals">0</div>
+                        <p>items</p>
+                    </div>
+                    <button class="secondary-btn" id="clearLogBtn">Clear Log</button>
+                </div>
+
+                <div class="log-items" id="logItems">
+                    <div class="empty-log">
+                        <p>No meals logged yet. Start by analyzing a food image!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2>Why Choose AI Nutrition Advisor?</h2>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div>
+                            <h4>Instant Analysis</h4>
+                            <p>Get nutrition facts in seconds, no manual entry needed</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div>
+                            <h4>Accurate Recognition</h4>
+                            <p>AI trained on thousands of food images for precise identification</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📱</div>
+                        <div>
+                            <h4>Easy to Use</h4>
+                            <p>Simple interface designed for students and busy professionals</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌱</div>
+                        <div>
+                            <h4>Build Healthy Habits</h4>
+                            <p>Make informed choices and develop better eating patterns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefits-visual">
+                    <div class="visual-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Success Stories</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">This app changed how I think about food! I lost 5kg in 2 months just by
+                        making smarter choices based on the health scores and suggestions.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <span>Engineering Student</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">As a working professional, I eat out a lot. This app helps me make
+                        healthier choices without spending time researching nutrition facts.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <span>Software Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Finally, a nutrition app that's actually simple to use! The AI
+                        recognition is surprisingly accurate, and I love the daily log feature.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🏫</div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <span>Fitness Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-prev">←</button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="testimonial-next">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Start Your Healthy Eating Journey Today</h2>
+                <p class="cta-text">Join thousands of users making smarter food choices with AI-powered nutrition
+                    insights</p>
+                <button class="primary-btn large"
+                    onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">Try Free
+                    Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">🥗 AI Nutrition<span class="dot">.</span></div>
+                    <p class="footer-desc">Smart food recognition and health suggestions powered by AI. Make healthier
+                        choices every day.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#demo">Try Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#daily-log">Daily Log</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@ainutrition.com">info@ainutrition.com</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Nutrition Advisor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
