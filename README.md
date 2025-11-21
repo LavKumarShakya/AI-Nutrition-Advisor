@@ -207,7 +207,7 @@ YUV!/
 1. **Clone or Download**
    ```bash
    # Clone the repository
-   git clone <repository-url>
+   git clone https://github.com/LavKumarShakya/AI-Nutrition-Advisor 
    
    # Or download and extract the ZIP file
    ```
